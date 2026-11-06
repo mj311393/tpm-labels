@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12325c">
+<title>TPM 设备标签库</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-top">
+    <div class="mark">TPM</div>
+    <div class="titles">
+      <h1>设备标签库</h1>
+      <p>舒勒冲压线 · 设备标签扫码调阅</p>
+    </div>
+    <div class="who">
+      <b>冯国庆</b>
+      <span>H0362</span>
+    </div>
+  </div>
+
+  <div class="searchwrap">
+    <svg class="mag" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+    <input id="q" type="search" inputmode="search" placeholder="搜设备名 / 工位号 / 编码，如 电柜、CBF2、E00000019P">
+    <button id="clearq" class="mini" hidden>×</button>
+  </div>
+
+  <div class="stat">
+    共 <b id="total">0</b> 张标签
+    <i>·</i>
+    <span id="catCount">0</span> 个类别
+    <i>·</i>
+    上汽大乘用车 南京江宁
+  </div>
+</header>
+
+<nav class="navbar">
+  <div class="tabs" id="tabs"></div>
+  <div class="chips" id="chips"></div>
+</nav>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>没找到匹配的标签，换个词试试。</p>
+</main>
+
+<footer class="foot">
+  <div class="foot-line"></div>
+  <p><b>冯国庆</b> · H0362</p>
+  <p class="foot-sub">TPM 设备标签库 · 内部使用</p>
+</footer>
+
+<!-- 详情 -->
+<section class="detail" id="detail" hidden>
+  <div class="dtop">
+    <button class="ico" id="close">‹</button>
+    <div class="dtitle">
+      <b id="dName"></b>
+      <span id="dCat"></span>
+    </div>
+    <button class="ico" id="zoomToggle" title="切换">⤢</button>
+  </div>
+
+  <div class="dbody" id="dbody">
+    <img id="dImg" alt="">
+    <p class="dnote" id="dNote">点图片切换：条码 ⇄ 标签原图</p>
+  </div>
+
+  <div class="seg" id="seg">
+    <button class="sbtn on" data-k="gen">矢量条码</button>
+    <button class="sbtn" data-k="img">标签原图</button>
+  </div>
+
+  <div class="dbar">
+    <button class="btn ghost" id="prev">上一个</button>
+    <button class="btn" id="scanMode">条码全屏</button>
+    <button class="btn ghost" id="next">下一个</button>
+  </div>
+  <div class="codeRow" id="codeRow">
+    <span class="codeLabel">编码</span>
+    <code id="dCode">—</code>
+    <button class="mini" id="copy">复制</button>
+  </div>
+</section>
+
+<!-- 纯条码全屏（给扫码枪/PDA 扫） -->
+<section class="scanmode" id="scanmode" hidden>
+  <div class="scanhead">
+    <span id="scanName"></span>
+    <button class="ico dark" id="scanClose">×</button>
+  </div>
+  <div class="scanbody"><img id="scanImg" alt=""></div>
+  <p class="scantip">屏幕调亮 · 条码正对扫码窗</p>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
